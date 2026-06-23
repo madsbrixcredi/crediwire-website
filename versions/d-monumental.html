@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crediwire — D / Monumental</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;800;900&display=swap");
+
+      :root {
+        --bg: #FBFAFD;
+        --bg-tint: #F5F2F9;
+        --ink: #0E0E14;
+        --ink-mute: #4F4B6B;
+        --purple: #3B3755;
+        --purple-light: #6F6A92;
+        --green: #33FF87;
+        --white: #fff;
+        --col: 880px;
+      }
+
+      * { box-sizing: border-box; }
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+      a { color: inherit; text-decoration-color: currentColor; text-underline-offset: 0.2em; }
+
+      /* Header — minimal white */
+      .site-header {
+        position: sticky; top: 0; z-index: 10;
+        background: rgba(251,250,253,0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        color: var(--ink);
+        padding: 28px max(20px, calc((100vw - var(--col)) / 2));
+        display: flex; align-items: center; justify-content: space-between; gap: 16px;
+        border-bottom: 1px solid rgba(14,14,20,0.06);
+      }
+      .logo img { display: block; max-width: 180px; max-height: 36px; height: auto; width: auto; }
+      .nav { display: flex; gap: 24px; align-items: center; }
+      .nav a { color: var(--ink); font-size: 15px; font-weight: 700; text-decoration: none; }
+      .nav a:nth-child(2) { margin-left: 32px; }
+
+      /* Sections */
+      .section { padding: 120px max(20px, calc((100vw - var(--col)) / 2)); position: relative; }
+      .section.tint { background: var(--bg-tint); }
+      .section.lilac {
+        background:
+          radial-gradient(ellipse at top right, rgba(51,255,135,0.15) 0%, transparent 60%),
+          linear-gradient(135deg, var(--purple) 0%, #2A2740 100%);
+        color: var(--white);
+      }
+      .section.lilac h2, .section.lilac h3, .section.lilac h4 { color: var(--white); }
+      .section.lilac p { color: rgba(255,255,255,0.86); }
+      .section.lilac .label { color: var(--green); }
+
+      .inner { max-width: var(--col); margin: 0 auto; }
+
+      /* Hero with subtle gradient texture */
+      .section.hero {
+        padding-top: 80px; padding-bottom: 60px;
+        background:
+          radial-gradient(ellipse 80% 60% at 50% 0%, rgba(51,255,135,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse 60% 50% at 80% 30%, rgba(59,55,85,0.06) 0%, transparent 60%),
+          var(--bg);
+      }
+
+      /* Mono label */
+      .label {
+        display: inline-block;
+        margin-bottom: 32px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--purple);
+      }
+
+      /* Massive hero type */
+      .hero h1 {
+        margin: 0 0 56px;
+        font-size: 60px;
+        font-weight: 900;
+        line-height: 0.92;
+        letter-spacing: -0.04em;
+        color: var(--ink);
+      }
+      .hero .lead {
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1.4;
+        margin: 0 0 22px;
+        color: var(--ink);
+        max-width: 720px;
+      }
+      .hi {
+        background-image: linear-gradient(to top, transparent 0.06em, var(--green) 0.06em, var(--green) 0.32em, transparent 0.32em);
+        padding: 0 0.04em;
+      }
+
+      /* Premium tile grid — bigger, elevated */
+      .tile-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 48px 0 48px;
+      }
+      .tile {
+        padding: 32px 24px;
+        background:
+          linear-gradient(135deg, rgba(59,55,85,0.04) 0%, rgba(51,255,135,0.10) 100%),
+          var(--white);
+        color: var(--purple);
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: -0.005em;
+        line-height: 1.3;
+        border: 1px solid rgba(14,14,20,0.06);
+        border-radius: 22px;
+        box-shadow: 0 2px 12px rgba(14,14,20,0.03), 0 1px 0 rgba(255,255,255,0.8) inset;
+      }
+      @media (min-width: 720px) {
+        .tile-grid { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+        .tile { padding: 40px 28px; font-size: 18px; border-radius: 26px; }
+      }
+      @media (min-width: 880px) {
+        .tile-grid { margin: 64px 0 64px; gap: 18px; }
+        .tile { padding: 48px 32px; font-size: 20px; border-radius: 30px; }
+      }
+
+      /* Section headlines — MONUMENTAL */
+      .section h2 {
+        margin: 0 0 40px;
+        color: var(--ink);
+        font-size: 46px;
+        font-weight: 900;
+        line-height: 1.0;
+        letter-spacing: -0.035em;
+      }
+      .section.lilac h2 { color: var(--white); }
+
+      .section p {
+        font-size: 18px;
+        line-height: 1.75;
+        margin: 0 0 22px;
+        max-width: 700px;
+      }
+      .section h3 {
+        margin: 64px 0 16px;
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--purple);
+      }
+      .section.lilac h3 { color: var(--white); }
+      .section h4 {
+        margin: 44px 0 10px;
+        font-size: 22px;
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: -0.015em;
+        color: var(--purple);
+      }
+      .section.lilac h4 { color: var(--white); }
+
+      /* Statement — viewport-filling type */
+      .stat-wrap {
+        padding: 180px max(20px, calc((100vw - var(--col)) / 2));
+        background:
+          radial-gradient(ellipse 60% 80% at 50% 50%, rgba(59,55,85,0.05) 0%, transparent 70%),
+          var(--bg);
+      }
+      .stat {
+        max-width: 1300px;
+        margin: 0 auto;
+        font-size: 64px;
+        font-weight: 900;
+        line-height: 0.94;
+        letter-spacing: -0.035em;
+        color: var(--ink);
+      }
+
+      /* Step number */
+      .step-num {
+        display: block;
+        margin: 72px 0 8px;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        color: var(--purple);
+      }
+      .section.lilac .step-num { color: var(--green); }
+      .step-num + h3 { margin-top: 0; }
+
+      /* Feature blocks */
+      .feature {
+        padding-top: 40px;
+        border-top: 1px solid rgba(14,14,20,0.08);
+        margin-top: 40px;
+      }
+      .feature:first-of-type { border-top: 0; padding-top: 0; margin-top: 24px; }
+      .feature h4 { margin: 0 0 14px; }
+      .feature p { margin-bottom: 14px; }
+      .feature p:last-child { margin-bottom: 0; }
+      .section.lilac .feature { border-color: rgba(255,255,255,0.1); }
+
+      /* CTA */
+      .cta { padding-top: 140px; padding-bottom: 160px; }
+      .cta h2 { margin-bottom: 28px; }
+      .cta p { font-size: 19px; margin-bottom: 18px; }
+      .cta a.contact {
+        display: inline-block; margin-top: 18px; padding: 22px 36px;
+        background: var(--ink); color: var(--white); text-decoration: none;
+        font-size: 16px; font-weight: 800; letter-spacing: 0.04em;
+        border-radius: 999px;
+        box-shadow: 0 12px 32px rgba(14,14,20,0.18);
+      }
+      .cta a.contact:hover { background: var(--purple); transform: translateY(-1px); }
+
+      /* Footer */
+      .site-footer {
+        background: var(--ink);
+        color: rgba(255,255,255,0.6);
+        padding: 64px max(20px, calc((100vw - var(--col)) / 2));
+      }
+      .site-footer .grid { max-width: var(--col); margin: 0 auto; display: grid; gap: 32px; }
+      .site-footer p, .site-footer a { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.7); }
+      .site-footer .info p { margin: 0 0 6px; }
+      .site-footer nav { display: flex; flex-direction: column; gap: 10px; }
+
+      @media (min-width: 720px) {
+        .site-footer .grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (min-width: 880px) {
+        .section.hero { padding-top: 120px; padding-bottom: 80px; }
+        .hero h1 { font-size: 140px; line-height: 0.88; }
+        .hero .lead { font-size: 28px; line-height: 1.35; }
+        .section { padding: 200px max(20px, calc((100vw - var(--col)) / 2)); }
+        .section h2 { font-size: 88px; margin-bottom: 56px; }
+        .section h3 { font-size: 40px; margin-top: 80px; }
+        .section h4 { font-size: 26px; }
+        .section p { font-size: 19px; line-height: 1.75; }
+        .stat-wrap { padding: 280px max(20px, calc((100vw - var(--col)) / 2)); }
+        .stat { font-size: 140px; line-height: 0.92; letter-spacing: -0.04em; }
+        .cta { padding-top: 200px; padding-bottom: 240px; }
+        .cta h2 { font-size: 108px; }
+        .label { font-size: 14px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="../index.html" aria-label="Crediwire">
+        <img src="../CW_logo_lilla_rgb.png" alt="">
+      </a>
+      <nav class="nav">
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://app.crediwire.com/login">Log ind</a>
+        <a href="https://app.crediwire.com/register">Registrér</a>
+      </nav>
+    </header>
+
+    <section class="section hero">
+      <div class="inner">
+        <span class="label">Finansiel infrastruktur</span>
+        <h1>Finansiel infrastruktur til revisorer, banker og virksomheder.</h1>
+        <p class="lead">Crediwire leverer live regnskabsdata, struktureret, <span class="hi">valideret</span> og dokumenteret.</p>
+        <div class="tile-grid">
+          <div class="tile">Årsrapporter</div>
+          <div class="tile">Assistanceerklæringer</div>
+          <div class="tile">Dataanalyse</div>
+          <div class="tile">Rapportering</div>
+          <div class="tile">Kreditprocesser</div>
+          <div class="tile">Connected clients</div>
+          <div class="tile">Porteføljeoverblik</div>
+          <div class="tile">Benchmark</div>
+        </div>
+        <p class="lead">Og andre finansielle arbejdsgange — alle på samme datagrundlag.</p>
+        <p class="lead">Én fælles finansiel virkelighed.</p>
+        <p class="lead">Bygget til det daglige arbejde, der allerede finder sted. Bare på et stærkere grundlag.</p>
+      </div>
+    </section>
+
+    <div class="stat-wrap"><p class="stat">Vi sælger ikke data.<br>Vi sælger tillid.</p></div>
+
+    <section class="section tint">
+      <div class="inner">
+        <span class="label">01 — I dag</span>
+        <h2>Filer i mail. Excel-versioner. Tal fra sidste kvartal.</h2>
+        <p>Den finansielle dagligdag er fragmenteret. Det er ikke en provokation. Det er en observation, der gentager sig på tværs af de organisationer, vi taler med.</p>
+        <p>Revisorer bruger uger på at trække data ud af klienternes bogføringssystemer. Eksportere. Mappe konti til en intern struktur. Stemme af. Identificere fejl. Bede klienten om opklaringer. Vente på svar. Lave det igen.</p>
+        <p>Det reelle revisionsarbejde — det faglige, det vurderende, det rådgivende — kommer først, når dataarbejdet er ovre. Og dataarbejdet er aldrig helt ovre.</p>
+        <p>Banker står over for samme problem fra den anden side. En kreditbeslutning kræver et opdateret billede af kundens økonomi. I praksis bliver den taget på baggrund af et regnskab, der er to til seks måneder gammelt. Eventuelle perioderegnskaber er manuelle, ikke valideret, og ofte i et format, der ikke kan sammenlignes med tidligere data eller med andre kunder i porteføljen.</p>
+        <p>Virksomhederne selv — særligt små og mellemstore — sidder med et bogføringssystem, en revisor, en bank, en CFO eller en bogholder, og fire forskellige forståelser af, hvad tallene faktisk siger. Når der skal træffes en beslutning — en investering, en ansættelse, en udvidelse, en omkostningsbesparelse — er det sjældent klart, hvilket tal der skal bruges.</p>
+        <p>Alt det her sker, selvom data findes. Data er bogført. Data er sendt. Data er gemt. Data er sågar tilgængelig via API i de fleste systemer. Den er bare ikke brugbar.</p>
+        <p>Den er ikke struktureret. Den er ikke valideret. Den er ikke sammenlignelig på tværs. Den er ikke dokumenteret på den måde, der skal til, før den kan indgå i et stykke fagligt arbejde, en kreditvurdering, en beslutning.</p>
+        <p>Resultatet er manuelt arbejde. Mistede uger. Genberegninger. Versioner. Tab af tillid mellem aktørerne. Og en daglig følelse af, at meget tid bliver brugt på det forkerte.</p>
+        <p>Det er ikke et softwareproblem. Det er et infrastrukturproblem.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="inner">
+        <span class="label">02 — Med Crediwire</span>
+        <h2>Levende regnskabsdata. Delt af alle, der har brug for dem.</h2>
+        <p>Forestil dig, at regnskabet ikke er en fil, der bliver sendt frem og tilbage. Men en levende virkelighed, alle parter har adgang til.</p>
+        <p>Bogføres en postering i virksomhedens system, ved Crediwire det. Datagrundlaget opdateres med det samme. Strukturen er allerede mappet til en ensartet kontoplan. Reklassifikationer er dokumenteret. Kvalitetskontroller er kørt og bestået — eller markeret med præcis beskrivelse af, hvad der mangler, og hvorfor.</p>
+        <p>Revisor ser ikke et udtræk. Revisor ser en levende virksomhed. Det er det samme grundlag, der ligger til grund for analyse, rapportering og erklæringer.</p>
+        <p>Banken ser ikke et regnskab fra sidste kvartal. Banken ser et opdateret billede af kundens økonomi, struktureret på samme måde som alle andre kunder i porteføljen. Kreditbeslutninger kan bygges på data, der reelt afspejler virkeligheden — ikke et øjebliksbillede fra et halvt år tilbage.</p>
+        <p>Virksomhedens ledelse ser ikke fire forskellige tal. De ser ét tal — det samme, som revisor og bank ser. Når der skal træffes en beslutning, er den ikke en gætteleg.</p>
+        <p>Det er ikke en fremtidsvision. Det er det, Crediwire leverer.</p>
+        <p>Vi kalder det finansiel infrastruktur, fordi det er det, det er. Infrastruktur er det grundlag, andet arbejde står på. Det er ikke selve arbejdet — det er det, der gør arbejdet muligt. På samme måde som veje gør transport muligt, eller som strømnet gør elektrificering muligt, gør Crediwire moderne finansielt arbejde muligt.</p>
+        <p>Når det grundlag er på plads, kan alt det interessante arbejde ske ovenpå. Analyser. Rapporter. Erklæringer. Beslutninger. Rådgivning. Kreditvurdering. Det er dér, mennesker bruger deres faglighed. Det er dér, værdien faktisk skabes.</p>
+        <p>Vores opgave er at sørge for, at det grundlag, de står på, er stærkt nok.</p>
+      </div>
+    </section>
+
+    <div class="stat-wrap"><p class="stat">Tillid er produktet.<br>Alt andet er <span class="hi">infrastruktur</span>.</p></div>
+
+    <section class="section lilac">
+      <div class="inner">
+        <span class="label">03 — Bygget til</span>
+        <h2>Tre fag. Ét fælles grundlag.</h2>
+        <p>Crediwire er bygget til at fungere på tværs af tre fag, der hver især har deres egen logik, deres egen tidshorisont og deres egen forståelse af, hvad regnskabsdata skal kunne. Alligevel arbejder de på samme virkelighed. Det er det, vi forsøger at gøre eksplicit.</p>
+
+        <h3>For revisorer.</h3>
+        <p>Revisorarbejdet bygger på et fundament: at det datagrundlag, der ligger til grund for analyse, rapportering og erklæringer, er korrekt, fuldstændigt og dokumenteret.</p>
+        <p>I dag er det fundament noget, revisor selv bygger op fra grunden, hver eneste gang. Det starter med et udtræk fra klientens bogføringssystem, fortsætter med afstemninger, mapping, reklassifikationer og kvalitetstjek, og ender — efter mange timers manuelt arbejde — med et datagrundlag, der kan arbejdes videre med.</p>
+        <p>Crediwire vender det om. Datagrundlaget er allerede der, før arbejdet begynder. Klientens bogføring er forbundet, mappet, valideret og dokumenteret. Revisoren starter ikke med en eksportfil. Revisoren starter med et fagligt spørgsmål.</p>
+        <p>Det giver mere ensartet dokumentation. Hver klient har samme strukturelle grundlag. Reklassifikationer er sporbart dokumenteret. Kvalitetskontroller er kørt og noteret. Når der bliver spurgt — af en partner, af en kvalitetsansvarlig, af en myndighed — kan svaret findes, vises og forklares.</p>
+        <p>Det giver et stærkere bagland for analyse, rapportering, kvalitetssikring og erklæringsarbejde. Sammenligning på tværs af klienter, perioder og brancher bliver mulig, fordi grundlaget er det samme. Nøgletal bliver direkte sammenlignelige. Trends i porteføljen bliver synlige.</p>
+        <p>Det skalerer. Den samme revisor kan håndtere flere klienter, uden at kompleksiteten vokser tilsvarende. Den samme partner kan stå på mål for flere erklæringer, fordi grundlaget er ensartet. Vækst i revisionshuse handler i sidste ende om kapacitet — og kapacitet skabes ved at fjerne dobbeltarbejde, ikke ved at ansætte flere til at lave det samme manuelle arbejde.</p>
+        <p>Det styrker rådgivningen. Når tid frigøres fra afstemning, udtræk og fejlfinding, kan den lægges der, hvor revisoren reelt gør en forskel: i fagligheden, i vurderingen, i samtalen med klienten. Det er det arbejde, klienterne betaler for. Det er det arbejde, der gør forskellen mellem en revisor og et udtræk.</p>
+        <p>Crediwire er ikke et regnskabsprogram. Crediwire er det grundlag, regnskabsprogrammet bliver brugbart på.</p>
+
+        <h3>For banker.</h3>
+        <p>Bankens erhvervsudlån står og falder på kvaliteten af kreditvurderingen. Vurderingen står og falder på kvaliteten af det datagrundlag, den bygger på.</p>
+        <p>I dag er datagrundlaget i de fleste tilfælde et årsregnskab — modtaget som PDF, ofte flere måneder efter at det er afsluttet. Eventuelle perioderegnskaber er manuelle, ofte ikke valideret, og strukturelt forskellige fra det årsregnskab, banken har i forvejen. Sammenligning er svær. Trends er svære at se. Risikobilledet er bagudrettet.</p>
+        <p>Crediwire forbinder kundens bogføring direkte til bankens vurderingsproces. Datagrundlaget er opdateret. Strukturen er ensartet på tværs af kunder. Kvalitetskontroller er kørt og dokumenteret. Banken arbejder ikke på et PDF-udtræk fra februar. Banken arbejder på det, der står i bogføringen i går.</p>
+        <p>Det ændrer kreditprocessen. Vurderinger kan opdateres løbende. Trigger-events — markante ændringer i omsætning, likviditet, kapitalforhold — kan opdages tidligt. Advarselssignaler bliver synlige, før de bliver til problemer, der skal håndteres reaktivt.</p>
+        <p>Det ændrer kundedialogen. Når bank og virksomhed ser samme tal, bliver samtalen om økonomien konkret. Også når den er svær. Diskussioner om kovenanter, om afdragsstruktur, om kreditramme, om vækstkapital sker på et fælles grundlag — ikke på to forskellige versioner af virkeligheden.</p>
+        <p>Det ændrer porteføljen. Hele kundebasen kan følges samlet. Bevægelser kan ses på tværs. Hvad sker der i en branche? Hvad sker der i en region? Hvilke kunder bevæger sig i hvilken retning? Det bliver ikke længere et spørgsmål, der kræver en uges manuel analyse. Det bliver et opslag.</p>
+        <p>For banken er Crediwire ikke et nyt kreditsystem. Det er det datagrundlag, kreditsystemet bliver præcist på.</p>
+
+        <h3>For virksomheder.</h3>
+        <p>For virksomheder — særligt små og mellemstore — er forholdet til egen økonomi ofte mere distanceret, end det burde være. Bogføringen sker. Regnskabet bliver lavet. Banken får det de skal have. Men det daglige overblik mangler.</p>
+        <p>Det er ikke fordi viljen ikke er der. Det er fordi infrastrukturen ikke er det. At samle et reelt billede af forretningen kræver, at nogen — typisk CFO, bogholder eller revisor — bruger tid på at hente data ud, sætte det op, beregne nøgletal og forklare dem. Den tid er der sjældent.</p>
+        <p>Crediwire ændrer det. Tallene er opdaterede. Strukturen er ensartet. Nøgletal er beregnet — hver dag, ikke kun ved kvartal eller årsskifte. Hvis man vil vide, hvordan bruttomargen har udviklet sig de seneste tre måneder, er det et opslag. Ikke et projekt.</p>
+        <p>Samarbejdet med revisor og bank bliver lettere. Data deles, ikke filer. Spørgsmål kan besvares hurtigt, fordi alle ser det samme. Når revisor stiller et spørgsmål om en specifik konto, behøver man ikke gå tilbage og finde bilag. Når banken vil have en opdatering, er den der allerede.</p>
+        <p>Beslutninger får et stærkere fundament. Det er sjældent mere data, der mangler i en virksomhed. Det er pålidelig data. Den slags man kan stole på, når man skal vælge mellem to investeringer, vurdere om man kan ansætte en til, eller forhandle med en leverandør om priser.</p>
+        <p>For virksomheden er Crediwire ikke endnu et system at lære. Det er den rolige, korrekte version af det, der allerede står i bogføringen — gjort tilgængelig, sammenlignelig og brugbar.</p>
+      </div>
+    </section>
+
+    <div class="stat-wrap"><p class="stat">Én fælles<br>finansiel <span class="hi">virkelighed</span>.</p></div>
+
+    <section class="section tint">
+      <div class="inner">
+        <span class="label">04 — Sådan virker det</span>
+        <h2>Fire trin, der gentages hver dag.</h2>
+        <p>Crediwire er ikke et stykke software, du skal lære at bruge på en bestemt måde. Det er en infrastruktur, der kører i baggrunden, og som leverer et brugbart datagrundlag til de mennesker og systemer, der har brug for det.</p>
+        <p>Under motorhjelmen sker der fire ting. De gentages — ikke en gang om måneden, ikke en gang om kvartalet, men hver eneste dag, så snart der bogføres noget i den underliggende virksomhed.</p>
+
+        <span class="step-num">01 / Forbind</span>
+        <h3>Forbind</h3>
+        <p>Crediwire integrerer direkte med de mest udbredte bogføringssystemer. Forbindelsen oprettes én gang og kører derefter i baggrunden. Når en postering bliver bogført — en faktura, en betaling, en lønudbetaling, en omkostning — registreres den med det samme i Crediwire.</p>
+        <p>Der er ingen filudveksling. Ingen manuelle eksporter. Ingen "version 3 final" i mailen. Datagrundlaget er forbundet til kilden — ikke en kopi af den.</p>
+        <p>Det betyder også, at sandheden er ét sted. Bogføringen er master. Crediwire læser fra master og leverer det videre i en brugbar form. Vi opfinder ikke en ny virkelighed. Vi gør den eksisterende tilgængelig.</p>
+
+        <span class="step-num">02 / Strukturér</span>
+        <h3>Strukturér</h3>
+        <p>Konti fra virksomhedens bogføring mappes automatisk til en ensartet struktur. Det er ikke en standardisering af, hvordan virksomheden bogfører — den må gerne fortsætte præcis som hidtil. Det er en oversættelse af bogføringens interne kontoplan til en fælles, sammenlignelig struktur, alle andre i økosystemet kan arbejde på.</p>
+        <p>Hvor data ikke er bogført, som det skal læses, kan posteringer reklassificeres centralt. Reklassifikationen er ikke en ændring af bogføringen. Den er et lag ovenpå, der er sporbart dokumenteret. Hver reklassifikation har en begrundelse, en periode og en ansvarlig.</p>
+        <p>Strukturen er konsistent på tværs af virksomheder, kunder og porteføljer. To virksomheder med vidt forskellige kontoplaner kan pludselig sammenlignes på samme grundlag. Det er forudsætningen for benchmark, for porteføljeoverblik, for ensartede analyser.</p>
+
+        <span class="step-num">03 / Validér</span>
+        <h3>Validér</h3>
+        <p>Kvalitetskontrol kører løbende — ikke ved kvartalsafslutning, ikke ved årsskifte, men hver dag. Crediwire ser efter manglende posteringer, åbne perioder, balanceuoverensstemmelser, atypiske bevægelser og en lang række andre signaler, der typisk indikerer, at der er noget, der skal kigges på.</p>
+        <p>Når noget bliver markeret, sker det med en konkret beskrivelse. Hvad er der observeret. Hvilken periode. Hvilken konto. Hvilken type kontrol, der har fanget det. Hvor sandsynligt det er at være en reel fejl versus en forventet variation.</p>
+        <p>Det betyder, at du ikke arbejder på data, du ikke kan stole på. Og hvis noget skal undersøges, ved du præcis, hvad det er, før du går i gang. Du opdager det ikke først, når en rapport bliver afvist eller en erklæring skal trækkes tilbage.</p>
+
+        <span class="step-num">04 / Brug</span>
+        <h3>Brug</h3>
+        <p>Det validerede datagrundlag indgår direkte i de arbejdsgange, der allerede findes. Rapportering. Analyse. Erklæringer. Kreditprocesser. Rådgivning. Beslutninger.</p>
+        <p>Crediwire erstatter ikke arbejdet. Crediwire erstatter heller ikke det bogføringssystem, du allerede bruger, eller det revisionssystem, dit hus har valgt, eller den kreditmotor, banken kører på. Crediwire leverer det fælles grundlag, alt det andet kan arbejde på.</p>
+        <p>I praksis betyder det, at dine eksisterende systemer fortsat er der. Men de henter data fra et fælles, validerede grundlag — ikke fra fragmenterede udtræk hver gang. Det er forskellen mellem at bygge på sten og at bygge på sand.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="inner">
+        <span class="label">05 — Hvad det indeholder</span>
+        <h2>Bygget til det daglige arbejde.</h2>
+        <p>Crediwire er ikke ét enkelt produkt med én enkelt funktion. Det er en infrastruktur, der dækker det meste af det, der skal til for at gå fra bogføring til brugbar finansiel virkelighed. Her er hvad der ligger under motorhjelmen.</p>
+
+        <div class="feature"><h4>Direkte forbindelse til bogføringssystemet</h4>
+          <p>Crediwire integrerer med de mest udbredte bogføringssystemer i Danmark og leverer data løbende. Ingen filudveksling, ingen manuelle eksporter, ingen versionsforvirring om hvilken kopi af regnskabet, der er den rigtige.</p>
+          <p>Forbindelsen oprettes én gang og kører derefter automatisk. Du behøver ikke gøre noget hver gang, der er bogført noget nyt. Det sker af sig selv.</p></div>
+        <div class="feature"><h4>Automatisk mapping</h4>
+          <p>Konti fra virksomhedens bogføring mappes automatisk til en ensartet struktur. Det betyder, at to virksomheder med vidt forskellige kontoplaner kan sammenlignes, vurderes og rapporteres på samme grundlag.</p>
+          <p>Mappingen er ikke statisk. Når der kommer nye konti til, foreslår Crediwire en mapping baseret på mønstre fra tidligere data. Brugeren kan acceptere eller justere. Mappingen forbedres over tid.</p></div>
+        <div class="feature"><h4>Reklassifikation</h4>
+          <p>Hvor data ikke er bogført, som det skal læses i en bestemt sammenhæng, kan posteringer reklassificeres centralt. Reklassifikationen følger datagrundlaget og er sporbart dokumenteret.</p>
+          <p>Det betyder, at en revisor kan reklassificere en omkostning til en anden gruppering uden at ændre på selve bogføringen. Og at samme reklassifikation kan vises og forklares ved senere lejlighed — også om et halvt år, når sammenhængen er glemt.</p></div>
+        <div class="feature"><h4>Kvalitetskontrol</h4>
+          <p>Crediwire kører løbende kontroller på datagrundlaget. Manglende posteringer, åbne perioder, balanceuoverensstemmelser, atypiske bevægelser og en lang række andre signaler bliver fanget tidligt.</p>
+          <p>Når en kontrol markerer noget, sker det med konkret beskrivelse: hvilken periode, hvilken konto, hvilken type signal. Det betyder, at det, der skal undersøges, er præcist defineret — og at problemer ikke først dukker op, når det er for sent.</p></div>
+        <div class="feature"><h4>Nøgletal</h4>
+          <p>Centrale finansielle nøgletal beregnes på det validerede grundlag. Bruttoavance. Driftsresultat. Likviditet. Soliditet. Afkastningsgrad. Egenkapitalens forrentning. Og en lang række mere.</p>
+          <p>Nøgletallene er sammenlignelige på tværs af virksomheder, perioder og porteføljer — fordi grundlaget er det samme. Det er forudsætningen for både benchmark, analyse og kreditvurdering.</p></div>
+        <div class="feature"><h4>Dokumentation</h4>
+          <p>Hver beregning. Hver reklassifikation. Hver kontrol. Hver mapping-beslutning. Hver godkendelse. Alt sammen dokumenteret og sporbart.</p>
+          <p>Det betyder, at du ved, hvor tallet kommer fra. Du kan vise det. Du kan stå på mål for det. Også når en revisor, en kreditansvarlig, en bestyrelse eller en myndighed spørger — også længe efter, at du selv har glemt detaljerne.</p></div>
+        <div class="feature"><h4>Årsrapporter</h4>
+          <p>Crediwire understøtter arbejdet med årsrapporter, så det validerede datagrundlag flyder direkte ind i rapporteringen. Mindre afstemning. Mere kontrol. Bedre dokumentation. Færre versioner i omløb.</p>
+          <p>Det betyder ikke, at årsrapporten skriver sig selv. Det betyder, at de mange timer, der typisk bruges på at få data klar til selve rapporten, kan bruges på selve rapporten i stedet.</p></div>
+        <div class="feature"><h4>Assistanceerklæringer</h4>
+          <p>Assistanceerklæringer kan udarbejdes oven på datagrundlaget, så grundlag og erklæring er bundet sammen i ét gennemskueligt forløb.</p>
+          <p>Det styrker både fagligheden og sporbarheden. Erklæringen står ikke alene som et færdigt dokument — den er forbundet til det datagrundlag, der ligger til grund for den, med fuld dokumentation af, hvad der er kontrolleret og hvordan.</p></div>
+        <div class="feature"><h4>Dataanalyse</h4>
+          <p>Strukturerede regnskabsdata gør analyse mulig på tværs af virksomheder, brancher og perioder. Du kan stille det samme spørgsmål til mange virksomheder samtidigt og få sammenlignelige svar.</p>
+          <p>Hvilke virksomheder i porteføljen har haft faldende bruttomargen tre kvartaler i træk? Hvilke har haft stigende kortfristet gæld? Hvilke afviger markant fra deres branchegennemsnit? Den slags spørgsmål bliver til opslag — ikke til projekter.</p></div>
+        <div class="feature"><h4>Rapportering</h4>
+          <p>Rapporter bygger på det fælles datagrundlag. Det samme tal vises ens, uanset hvor i organisationen rapporten produceres, eller hvilken kunde den handler om.</p>
+          <p>Det betyder, at uoverensstemmelser mellem rapporter — den klassiske "men det stod der ikke i sidste rapport" — ikke længere er en kilde til usikkerhed. Alt bygger på samme grundlag. Forskelle skyldes virkeligheden, ikke datafejl.</p></div>
+        <div class="feature"><h4>Kreditprocesser</h4>
+          <p>For banker leverer Crediwire opdateret, dokumenteret regnskabsdata til kreditprocesser. Vurderinger bygger ikke længere på data, der er flere måneder gamle. Risikobilledet bliver mere reelt — og kan opdateres løbende.</p>
+          <p>Det betyder kortere sagsbehandling, færre overraskelser sent i forløbet, og en mere dynamisk porteføljeforvaltning, hvor advarselssignaler kan opfanges tidligt og handles på, før de bliver til problemer.</p></div>
+        <div class="feature"><h4>Connected clients</h4>
+          <p>Kunder, klienter og porteføljeselskaber forbindes til samme infrastruktur. Revisor, bank og virksomhed arbejder på samme datagrundlag, hver med deres egen adgang og deres eget formål — uden at sende filer frem og tilbage.</p>
+          <p>Det er forudsætningen for det meste af det, der gør Crediwire værdifuldt. Når alle parter står på samme grundlag, bliver dialogen mellem dem mere konkret, mere effektiv, og mere tillidsbaseret.</p></div>
+        <div class="feature"><h4>Porteføljeoverblik</h4>
+          <p>For organisationer med mange klienter eller mange virksomheder under sig samles overblikket ét sted. Du kan se status, kvalitet, frister og afvigelser på tværs af hele porteføljen — i stedet for én kunde ad gangen.</p>
+          <p>Det er afgørende for revisionshuse, banker, holdingselskaber og andre, der har et fagligt eller forretningsmæssigt ansvar for flere virksomheder samtidig. Det er forskellen mellem at navigere et hus og at navigere én lejlighed.</p></div>
+        <div class="feature"><h4>Benchmark</h4>
+          <p>Når data er sammenlignelig på tværs, kan virksomheder benchmarkes mod brancher og peers. Det giver kontekst til både rådgivning, kreditvurdering og virksomhedens egen forståelse af, hvor den står.</p>
+          <p>Hvad er et "godt" tal? Det afhænger af branchen, størrelsen, fasen. Benchmark gør den slags vurderinger konkret. Det er ikke længere en mavefornemmelse — det er et tal på et tal.</p></div>
+        <div class="feature"><h4>Sikkerhed og datagrundlag</h4>
+          <p>Crediwire behandler finansielle data og personoplysninger efter dansk og europæisk regulering. Adgange er rollebaserede. Databehandleraftaler er på plads. Krypteret transport og opbevaring følger branchestandard.</p>
+          <p>Vi behandler det her som den infrastruktur, det er. Og infrastruktur, som mange aktører deler, skal man kunne stole på — ikke kun fagligt, men også sikkerhedsmæssigt, regulatorisk og driftsmæssigt.</p></div>
+      </div>
+    </section>
+
+    <div class="stat-wrap"><p class="stat">Den største fortælling<br>er <span class="hi">kvalitet</span>.</p></div>
+
+    <section class="section tint">
+      <div class="inner">
+        <span class="label">06 — Tre løfter</span>
+        <h2>Crediwire handler ikke om tid. Det handler om kvalitet.</h2>
+        <p>Tid er et resultat. Men det er ikke den største fortælling. Den største fortælling er kvalitet: bedre data, bedre processer, bedre dokumentation, bedre beslutninger.</p>
+        <p>Når det grundlag er på plads, hjælper Crediwire grundlæggende med tre ting. Det er ikke marketinglove. Det er hvad organisationer typisk får ud af, at deres finansielle data bliver levende.</p>
+
+        <h3>Øger omsætning.</h3>
+        <p>Når kvalitet og kapacitet stiger, kan revisorer levere mere til flere. Banker kan vurdere flere sager med samme bemanding. Virksomheder kan handle på deres data, mens de stadig er aktuelle.</p>
+        <p>For revisorer betyder det, at det samme team kan håndtere flere klienter, eller at de samme klienter kan få mere rådgivning. For banker betyder det kortere sagsbehandling og en mere proaktiv porteføljeforvaltning. For virksomheder betyder det, at en investeringsbeslutning ikke skal vente på, at regnskabet er klart — den kan tages på et opdateret grundlag, med en realtidsforståelse af, hvad der er muligt.</p>
+        <p>Det er ikke vækst gennem flere produkter eller flere kunder. Det er vækst gennem bedre infrastruktur.</p>
+
+        <h3>Reducerer omkostninger.</h3>
+        <p>Når datagrundlaget er fælles, falder dobbeltarbejdet. Afstemninger, udtræk og manuelle kontroller, der ikke skaber værdi, bliver overflødige eller automatiseres.</p>
+        <p>I de fleste organisationer går en stor del af det finansielle arbejde med at sikre, at data er der, hvor den skal være, og at den ser ud, som den skal. Crediwire tager den opgave på sig. Det frigør tid — ikke til at fylde med andet arbejde, men til at bruge på det arbejde, der reelt skaber værdi: fagligheden, vurderingen, samtalen, beslutningen.</p>
+        <p>Det er omkostningsreduktion, der ikke kommer fra at fyre folk. Det er omkostningsreduktion, der kommer fra at lade folk gøre det, de er ansat til.</p>
+
+        <h3>Understøtter compliance.</h3>
+        <p>Når processer er ensartede og dokumenterede, bliver det let at vise, hvad der er gjort, hvorfor det er gjort, og hvordan det er gjort. Til revision. Til myndigheder. Til ledelsen. Til den, der spørger næste gang.</p>
+        <p>Reguleringen af finansielt arbejde bliver ikke mindre kompliceret. Den bliver mere. ESG-rapportering. Kreditreguleringer. Skattemæssige krav til dokumentation. Nye standarder for kvalitetssikring. Crediwire er ikke et compliance-værktøj. Men det er det datagrundlag, compliance-arbejdet kan bygges på — uden at det skal genopfindes hver gang.</p>
+        <p>Det er compliance som biprodukt, ikke som projekt. Det er den slags grundlag, der gør, at man kan svare uden at skulle lede.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="inner">
+        <span class="label">07 — Tillid</span>
+        <h2>Finansielt arbejde handler om tillid.</h2>
+        <p>Tillid til data. Tillid til dokumentationen. Tillid til processen. Tillid til beslutningen. Det er det, alt det andet bygger på.</p>
+        <p>Uden tillid bliver data endnu en opgave. Endnu en fil, der skal tjekkes. Endnu en version, der skal afstemmes. Endnu en rapport, der skal gennemgås for fejl, før den kan bruges. Det er det daglige arbejde, der dræber organisationer.</p>
+        <p>Med tillid bliver data et grundlag. Noget, beslutninger kan bygges på. Noget, samtaler kan tages udfra. Noget, faglige vurderinger kan ankres i.</p>
+        <p>Tillid bygges ikke ved at markedsføre. Den bygges ved at levere et grundlag, der er korrekt, fuldstændigt og dokumenteret — gang på gang, dag efter dag, klient efter klient. Det er det, Crediwire gør.</p>
+        <p>Det er derfor, vi kalder det finansiel infrastruktur. Ikke fordi det lyder stort. Men fordi det er den rette beskrivelse. Infrastruktur er det, alt andet bygger på. Det er det, der gør moderne samfund muligt. Det er det, der binder fagene sammen.</p>
+        <p>Vi leverer finansiel infrastruktur. For revisorer, banker og virksomheder. For arbejde, der allerede findes. For beslutninger, der allerede tages.</p>
+        <p>Bare på et stærkere grundlag.</p>
+      </div>
+    </section>
+
+    <div class="stat-wrap"><p class="stat">Med tillid<br>bliver data et <span class="hi">grundlag</span>.</p></div>
+
+    <section class="section tint cta" id="kontakt">
+      <div class="inner">
+        <span class="label">08 — Kontakt</span>
+        <h2>Vil du se det på jeres data?</h2>
+        <p>Skriv eller ring. Vi viser gerne, hvordan Crediwire ser ud i jeres arbejde — på jeres data, med jeres systemer og i jeres processer.</p>
+        <p>Vi tager den fra start: hvordan datagrundlaget ser ud i dag, hvor det bryder ned, og hvordan det kan se ud, når Crediwire er på plads. Ingen lange salgsforløb. Ingen abstrakte løfter. Bare en konkret samtale om jeres virkelighed.</p>
+        <a class="contact" href="mailto:info@crediwire.com">Skriv til os</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="grid">
+        <div class="info">
+          <p>Crediwire ApS</p>
+          <p>CVR: 37264628</p>
+          <p>Gothersgade 14, 1123 København K</p>
+          <p><a href="mailto:info@crediwire.com">info@crediwire.com</a></p>
+          <p><a href="tel:+4591540965">+45 91 54 09 65</a></p>
+        </div>
+        <nav>
+          <a href="https://www.crediwire.dk/data-processing-agreement">Databehandleraftale</a>
+          <a href="https://www.crediwire.dk/cookie-policy">Cookiepolitik</a>
+          <a href="https://www.crediwire.dk/privacy-policy">Persondatapolitik</a>
+          <a href="https://www.crediwire.dk/terms-and-conditions">Vilkår og betingelser</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

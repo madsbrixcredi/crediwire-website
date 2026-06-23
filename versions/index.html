@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crediwire — design-versioner</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap");
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: #fafafa; color: #000; font-family: "Montserrat", sans-serif; font-weight: 300; line-height: 1.6; }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 64px 24px 120px; }
+      .label { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #3B3755; }
+      h1 { margin: 16px 0 16px; font-size: 44px; font-weight: 800; line-height: 1.04; letter-spacing: -0.02em; }
+      .intro { font-size: 18px; max-width: 580px; margin-bottom: 56px; color: #444; }
+      ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+      a.card { display: block; padding: 28px 28px 32px; background: #fff; border: 1px solid #eee; text-decoration: none; color: #000; transition: border-color .15s, transform .15s; }
+      a.card:hover { border-color: #3B3755; transform: translate3d(0,-2px,0); }
+      a.card .ver { font-size: 12px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: #3B3755; }
+      a.card .name { display: block; margin: 6px 0 6px; font-size: 24px; font-weight: 800; letter-spacing: -0.01em; }
+      a.card .desc { display: block; font-size: 15px; color: #555; }
+      .back { display: inline-block; margin-top: 48px; font-size: 13px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: #3B3755; text-decoration: none; }
+      .back:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <span class="label">Crediwire</span>
+      <h1>Fire retninger.</h1>
+      <p class="intro">Samme tekst i hver. Helt forskellige design-retninger så du kan mærke spændet i maven. Klik dig igennem og sammenlign.</p>
+
+      <ul>
+        <li>
+          <a class="card" href="a-franklin.html">
+            <span class="ver">A — Franklin Refined</span>
+            <span class="name">Editorial. Lyst.</span>
+            <span class="desc">Lilla anker, grå alternering, mono-labels, statements. Polert udgave af kursen vi er på.</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="b-dark.html">
+            <span class="ver">B — Editorial Dark</span>
+            <span class="name">Premium fintech. Mørkt.</span>
+            <span class="desc">Samme DNA inverteret. Dyb mørk baggrund, off-white tekst, grøn som lysende accent. Stripe Dark, Linear Dark, Bloomberg-adjacent.</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="c-editorial.html">
+            <span class="ver">C — Dansk redaktionel</span>
+            <span class="name">Serif. Litterært.</span>
+            <span class="desc">Cream baggrund, Newsreader serif-overskrifter, langsommere rytme. Som en feature i Politiken Weekend. Tiles bliver typografisk liste med hårfine linjer.</span>
+          </a>
+        </li>
+        <li>
+          <a class="card" href="d-monumental.html">
+            <span class="ver">D — Monumental</span>
+            <span class="name">Apple-luxe. Kæmpe.</span>
+            <span class="desc">Apple-produktside-energi. Typografi på 140px+, generøs hvid plads, subtile gradient-teksturer, kraftige geometriske former.</span>
+          </a>
+        </li>
+      </ul>
+
+      <a class="back" href="../index.html">← Tilbage til hovedside (gamle minimal-version)</a>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+# Cloudflare Pages redirects
+# Format: source destination status_code
+# Documentation: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Tilføj specifikke redirects her, hvis bestemte URLs på crediwire.com skal pege videre.
+# Eksempel:
+# /pricing  https://www.crediwire.dk/pricing  301
+# /om-os    https://www.crediwire.dk/om-os    301
+
+# Login og register peger til app
+/login     https://app.crediwire.com/login     302
+/register  https://app.crediwire.com/register  302
+/signup    https://app.crediwire.com/register  302

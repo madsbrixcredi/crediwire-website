@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crediwire — Siden findes ikke</title>
+    <link rel="icon" type="image/png" href="/CW_logo_lilla_rgb.png">
+    <link rel="stylesheet" href="/shared.css">
+    <style>
+      .not-found {
+        min-height: calc(100vh - 80px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 64px 20px;
+      }
+      .not-found .inner { max-width: 680px; margin: 0 auto; }
+      .not-found .code {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #3B3755;
+        margin-bottom: 24px;
+        display: block;
+      }
+      .not-found h1 {
+        margin: 0 0 24px;
+        font-size: 36px;
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+        color: #0E0E14;
+      }
+      .not-found p {
+        font-size: 17px;
+        line-height: 1.6;
+        margin: 0 0 14px;
+        color: #2A2740;
+      }
+      .not-found .actions {
+        margin-top: 32px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .not-found a.btn {
+        display: inline-block;
+        padding: 16px 26px;
+        background: #0E0E14;
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        border-radius: 999px;
+      }
+      .not-found a.btn.secondary {
+        background: #fff;
+        color: #0E0E14;
+        border: 1px solid rgba(14,14,20,0.12);
+      }
+      .not-found a.btn:hover { transform: translateY(-1px); }
+      @media (min-width: 720px) {
+        .not-found h1 { font-size: 48px; }
+        .not-found p { font-size: 19px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/" aria-label="Crediwire">
+        <img src="/CW_logo_lilla_rgb.png" alt="">
+      </a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true">
+      <label for="menu-toggle" class="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
+      <nav class="nav" aria-label="Hovednavigation">
+        <a href="/#kontakt">Kontakt</a>
+        <a href="https://app.crediwire.com/login">Log ind</a>
+        <a href="https://app.crediwire.com/register">Registrér</a>
+      </nav>
+    </header>
+
+    <main class="not-found">
+      <div class="inner">
+        <span class="code">404 — Siden findes ikke</span>
+        <h1>Den side, du leder efter, findes ikke her.</h1>
+        <p>Måske er du landet det forkerte sted. Eller måske ligger indholdet på vores anden side.</p>
+        <div class="actions">
+          <a class="btn" href="/">Tilbage til forsiden</a>
+          <a class="btn secondary" href="https://www.crediwire.dk/">Besøg crediwire.dk</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="grid">
+        <div class="info">
+          <p>Crediwire ApS</p>
+          <p>CVR: 37264628</p>
+          <p>Gothersgade 14, 1123 København K</p>
+          <p><a href="mailto:info@crediwire.com">info@crediwire.com</a></p>
+          <p><a href="tel:+4591540965">+45 91 54 09 65</a></p>
+        </div>
+        <nav>
+          <a href="https://www.crediwire.dk/data-processing-agreement">Databehandleraftale</a>
+          <a href="https://www.crediwire.dk/cookie-policy">Cookiepolitik</a>
+          <a href="https://www.crediwire.dk/privacy-policy">Persondatapolitik</a>
+          <a href="https://www.crediwire.dk/terms-and-conditions">Vilkår og betingelser</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
